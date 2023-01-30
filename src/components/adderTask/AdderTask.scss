@@ -1,0 +1,40 @@
+.AdderTasker {
+  position: absolute;
+  left: 40%;
+  top: 10%;
+  margin: 0 auto;
+
+  &__fill {
+    width: 340px;
+    height: 400px;
+    background-color: white;
+
+    border: 1px solid black;
+    border-radius: 5px;
+
+    &__created{
+      margin: 0 auto;
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1px;
+    }
+
+    &__button {
+      margin: 30px 5px 0 5px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    &__time {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}

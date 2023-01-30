@@ -1,0 +1,18 @@
+.TableHeader {
+  display: flex;
+  flex-direction: row;
+  gap: 300px;
+  justify-content: space-around;
+
+  margin: 0 auto;
+
+  &__daysMonth {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__month {
+    display: inline-block;
+    width: 80px;
+  }
+}

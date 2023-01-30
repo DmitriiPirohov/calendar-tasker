@@ -1,0 +1,14 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: center;
+  box-sizing: border-box;
+
+  &__back-hidden {
+    filter: blur(5px);
+    background-size: cover;
+
+    pointer-events: none;
+  }
+}

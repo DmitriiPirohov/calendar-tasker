@@ -1,0 +1,77 @@
+.Calendar {
+  width: max-content;
+  height: max-content;
+  margin: 0 auto;
+
+  border-radius: 5px;
+
+  &__list {
+    cursor: pointer;
+    font-size: 12px;
+
+    :hover {
+      background-color: grey;
+      scale: 1.05;
+    }
+
+    &__text {
+      display: flex;
+      justify-content: space-between;
+
+      color: rgb(96, 98, 126);
+
+      border-bottom: 1px solid #000;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  &__day {
+    width: 160px;
+    
+    min-height: 100px;
+    margin-top: 2px;
+
+    border: 1px solid black;
+    border-radius: 5px;
+
+    overflow: hidden;
+
+    &--toDay {
+      background-color: rgb(142, 188, 196);
+    }
+
+    &--none {
+      opacity: 0;
+    }
+  }
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 12px;
+
+    border-bottom: 1px solid #000;
+  }
+
+  &__row {
+    display: flex;
+    gap: 2px;
+
+    :hover {
+      scale: 1.005;
+    }
+  }
+
+  &__text {
+    color: blue;
+    &--red {
+      color: red;
+    }
+  }
+}
