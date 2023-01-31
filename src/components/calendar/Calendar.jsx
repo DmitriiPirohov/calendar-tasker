@@ -108,7 +108,7 @@ export const Calendar = React.memo(({ month, year, taskArray, SetTaskHidden, Set
                                 </span>
 
                                 <span>
-                                  {(`${task.time}` !== ' : ') && task.time}
+                                  {(`${task.time}` !== ' : ') && `${task.time}`.replace(/[^0-9,:]/g, '.')}
                                 </span>
                               </section>
                               : <></>

@@ -48,6 +48,7 @@ export const HeaderForCalendar = React.memo(({ month, changerDate, year, SetTask
             aria-label="add"
             size='large'
             onClick={() => SetTaskHidden(prev => !prev)}
+            title='add task'
           >
             <AddIcon />
           </Fab>
@@ -59,6 +60,7 @@ export const HeaderForCalendar = React.memo(({ month, changerDate, year, SetTask
             aria-label="add"
             size='large'
             onClick={() => changerDate('<')}
+            title='prev month'
           >
             <ArrowCircleLeftIcon />
           </Fab>
@@ -85,6 +87,8 @@ export const HeaderForCalendar = React.memo(({ month, changerDate, year, SetTask
             aria-label="add"
             size='large'
             onClick={() => changerDate('>')}
+            title='next month'
+
           >
             <ArrowCircleRightIcon />
           </Fab>
@@ -95,6 +99,8 @@ export const HeaderForCalendar = React.memo(({ month, changerDate, year, SetTask
           onClick={() => changerDate('reset')}
           style={buttonStyle}
           size='medium'
+          title='show me to day'
+
         >
           today
         </Button>
