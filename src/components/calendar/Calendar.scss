@@ -8,6 +8,7 @@
   &__list {
     cursor: pointer;
     font-size: 12px;
+    background-color: rgb(200, 148, 43);
 
     :hover {
       background-color: grey;
@@ -21,6 +22,10 @@
       color: rgb(96, 98, 126);
 
       border-bottom: 1px solid #000;
+    }
+
+    &--done{
+          background-color: rgb(100, 162, 89);
     }
   }
 

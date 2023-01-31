@@ -6,13 +6,15 @@
 
   &__fill {
     width: 340px;
-    height: 400px;
+    height: 440px;
     background-color: white;
 
     border: 1px solid black;
     border-radius: 5px;
 
     &__created{
+      display: flex;
+      flex-direction: row-reverse;
       margin: 0 auto;
     }
 

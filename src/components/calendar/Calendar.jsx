@@ -7,9 +7,9 @@ import './Calendar.scss';
 
 export const Calendar = React.memo(({ month, year, taskArray, SetTaskHidden, SetChoosenTask }) => {
   Calendar.propTypes = {
-    SetTaskHidden: PropTypes.bool,
+    SetTaskHidden: PropTypes.func,
     taskArray: PropTypes.array,
-    SetChoosenTask: PropTypes.array,
+    SetChoosenTask: PropTypes.func,
     month: PropTypes.number,
     year: PropTypes.number
   }
@@ -40,7 +40,7 @@ export const Calendar = React.memo(({ month, year, taskArray, SetTaskHidden, Set
 
       for (let i = 0; i <= 6; i++) {
         if (i === 0) {
-          visibleArray[i] = [Array.from({ length: 7 - (weekForRender.indexOf(arr[i][1]) + 1) }), arr.splice(0, weekForRender.indexOf(arr[i][1]) + 1)].flat(); //.fill([])
+          visibleArray[i] = [Array.from({ length: 7 - (weekForRender.indexOf(arr[i][1]) + 1) }), arr.splice(0, weekForRender.indexOf(arr[i][1]) + 1)].flat();
         } else {
           visibleArray[i] = arr.splice(0, 7);
         }
@@ -87,7 +87,11 @@ export const Calendar = React.memo(({ month, year, taskArray, SetTaskHidden, Set
                       taskArray.sort((a, b) => +a.time.replace(':', '') - (+b.time.replace(':', ''))).map((task) => (
                         <div
                           key={task.id}
-                          className='Calendar__list'
+                          className={
+                            classNames('Calendar__list',
+                            task.done && 'Calendar__list--done'
+                            )
+                          }
                         >
                           {
                             (

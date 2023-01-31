@@ -17,7 +17,7 @@ import './HeaderForCalendar.scss';
 
 export const HeaderForCalendar = React.memo(({ month, changerDate, year, SetTaskHidden }) => {
   HeaderForCalendar.propTypes = {
-    SetTaskHidden: PropTypes.bool,
+    SetTaskHidden: PropTypes.func,
     changerDate: PropTypes.func,
     month: PropTypes.number,
     year: PropTypes.number

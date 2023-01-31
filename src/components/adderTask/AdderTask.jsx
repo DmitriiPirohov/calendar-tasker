@@ -17,6 +17,8 @@ import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 
 import './AdderTask.scss';
 
+import Checkbox from '@mui/material/Checkbox';
+
 export const AdderTask = ({ SetTaskHidden, save, choosenTask, taskArray }) => {
   AdderTask.propTypes = {
     SetTaskHidden: PropTypes.func,
@@ -32,6 +34,12 @@ export const AdderTask = ({ SetTaskHidden, save, choosenTask, taskArray }) => {
   const [date, SetDate] = React.useState(dayjs(`${dateForDayjs.slice(3, 5)}.${dateForDayjs.slice(0, 2)}.${dateForDayjs.slice(6, 10)}`));
   const [time, SetTime] = useState({ $H: ' ', $m: ' ' });
   const [activeSaveButton, SetActiveSaveButton] = useState(true);
+  const [checked, setChecked] = React.useState((choosenTask && taskForView[0].done) || false);
+
+
+  const handleChangeDone = (event) => {
+    setChecked(event.target.checked);
+  };
 
   function handleSubmit(action = '') {
     const newWay = ['', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
@@ -39,9 +47,9 @@ export const AdderTask = ({ SetTaskHidden, save, choosenTask, taskArray }) => {
     const month = newWay.indexOf(date.$M) <= 9 ? `0${newWay.indexOf(date.$M)}` : newWay.indexOf(date.$M);
 
     if (action !== 'delete') {
-      save({ "id": choosenTask, "name": `${day}-${month}-${date.$y}`, "title": title, "description": description, "time": (`${time.$H}:${time.$m}`) !== 'undefined:undefined' ? `${time.$H}:${time.$m}` : `${taskForView[0].time}` }, 'task');
+      save({ "id": choosenTask, "name": `${day}-${month}-${date.$y}`, "title": title, "description": description, "time": (`${time.$H}:${time.$m}`) !== 'undefined:undefined' ? `${time.$H}:${time.$m}` : `${taskForView[0].time}`, "done" : checked }, 'task');
     } else {
-      save({ "id": choosenTask, "name": `delete`, "title": title, "description": description, "time": (`${time.$H}:${time.$m}`) !== 'undefined:undefined' ? `${time.$H}:${time.$m}` : `${taskForView[0].time}` }, 'task');
+      save({ "id": choosenTask, "name": `delete`, "title": title, "description": description, "time": (`${time.$H}:${time.$m}`) !== 'undefined:undefined' ? `${time.$H}:${time.$m}` : `${taskForView[0].time}`, "done" : checked }, 'task');
     }
 
     SetTaskHidden(prev => !prev);
@@ -90,6 +98,13 @@ export const AdderTask = ({ SetTaskHidden, save, choosenTask, taskArray }) => {
         >
           <div className='AdderTasker__fill__form'>
             <div className='AdderTasker__fill__created'>
+              <span>done</span>
+              <Checkbox
+                sx={{top: -9, ml: 5}}
+                checked={checked}
+                onChange={handleChangeDone}
+                inputProps={{ 'aria-label': 'controlled' }}
+              />
               {choosenTask && `Created ${choosenTask.replace(/[-]/g, ' ').slice(0, 12)} at: ${choosenTask.replace(/[-]/g, ' ').slice(12, 17)}`}
             </div>
 
