@@ -15,6 +15,7 @@ export const Calendar = React.memo(({ month, year, taskArray, SetTaskHidden, Set
   }
   const [howManyDays, SetHowManyDays] = useState([]);
   const [toDay, SetToDay] = useState(0);
+  console.log(toDay);
 
   const weekForRender = ['Sun', 'Sat', 'Fri', 'Thu', 'Wed', 'Tue', 'Mon'];
 
@@ -64,8 +65,9 @@ export const Calendar = React.memo(({ month, year, taskArray, SetTaskHidden, Set
                   key={index}
                   className={
                     classNames('Calendar__day',
-                      (`${date.slice(0, 1)}` === `${toDay}`) && 'Calendar__day--toDay'
+                      ((Number(date.slice(0, 1)) < 10 ? `0${date.slice(0, 1)}` : `${date.slice(0, 1)}`) === `${toDay}`) && 'Calendar__day--toDay'
                     )}
+                    
                 >
                   <span className='Calendar__container'>
                     <span className='Calendar__title'>
