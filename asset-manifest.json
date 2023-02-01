@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/calendar-tasker/static/css/main.2cc972ce.css",
-    "main.js": "/calendar-tasker/static/js/main.eaa97ac5.js",
+    "main.js": "/calendar-tasker/static/js/main.38c7c1cd.js",
     "index.html": "/calendar-tasker/index.html",
     "main.2cc972ce.css.map": "/calendar-tasker/static/css/main.2cc972ce.css.map",
-    "main.eaa97ac5.js.map": "/calendar-tasker/static/js/main.eaa97ac5.js.map"
+    "main.38c7c1cd.js.map": "/calendar-tasker/static/js/main.38c7c1cd.js.map"
   },
   "entrypoints": [
     "static/css/main.2cc972ce.css",
-    "static/js/main.eaa97ac5.js"
+    "static/js/main.38c7c1cd.js"
   ]
 }
